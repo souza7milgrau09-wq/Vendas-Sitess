@@ -13,11 +13,11 @@
         font-family: 'Arial', sans-serif;
     }
 
-    /* Fundo da página com imagem gerada */
+    /* Fundo da página com a imagem enviada */
     body {
-        background-image: url('/mnt/data/A_digital_mockup_of_a_sales_landing_page_displays_.png'); /* Sua imagem */
-        background-size: cover; /* Cobre toda a tela */
-        background-position: center center; /* Centraliza a imagem */
+        background-image: url('/mnt/data/59321f6e-58d1-4049-8379-89848ba6aee4.png');
+        background-size: cover; /* cobre toda a tela */
+        background-position: center center; /* centraliza */
         background-repeat: no-repeat;
         min-height: 100vh;
         display: flex;
@@ -28,12 +28,13 @@
 
     /* Overlay semi-transparente para destacar conteúdo */
     .overlay {
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgba(0,0,0,0.7);
         padding: 50px 60px;
         border-radius: 25px;
         text-align: center;
         max-width: 900px;
         width: 90%;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     h1 {
@@ -66,6 +67,7 @@
     .plano:hover {
         background-color: rgba(255, 255, 255, 0.2);
         transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4);
     }
 
     .plano h2 {
@@ -138,7 +140,7 @@
 <script>
 function comprar(preco) {
     const numeroWhatsApp = "5547997135174"; // Troque pelo seu número com DDD
-    const mensagem = `Comprei e quero liberar meu acesso! Plano: R$${preco}`;
+    const mensagem = `Quero comprar e quero liberar meu acesso! Plano: R$${preco}`;
 
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     const link = isMobile 
