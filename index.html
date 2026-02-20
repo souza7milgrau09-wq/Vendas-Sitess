@@ -1,32 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Oferta Especial</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libere seu acesso</title>
+<style>
+    /* Reset básico */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Fundo da página */
+    body {
+        background-image: url('C:\Users\souza\Downloads\imagem de vendas web - Pesquisar Imagens.html'); /* Troque pelo caminho da sua imagem */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    /* Overlay semi-transparente */
+    .overlay {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 40px 60px;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 32px;
+    }
+
+    p {
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+
+    /* Container de planos */
+    .planos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .plano {
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 20px 30px;
+        border-radius: 15px;
+        flex: 1 1 150px;
+        min-width: 150px;
+        transition: 0.3s;
+    }
+
+    .plano:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: scale(1.05);
+    }
+
+    .plano h2 {
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .plano p {
+        margin-bottom: 15px;
+        font-size: 16px;
+    }
+
+    .plano button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        background-color: #25D366;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .plano button:hover {
+        background-color: #128C7E;
+    }
+
+    /* Responsividade */
+    @media(max-width: 500px){
+        h1 { font-size: 26px; }
+        p { font-size: 16px; }
+        .plano h2 { font-size: 18px; }
+        .plano p { font-size: 14px; }
+    }
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="titulo">🔥 Oferta Imperdível 🔥</h1>
-        <p class="subtitulo">Escolha seu plano e garanta seu acesso agora mesmo!</p>
-        
-        <div class="planos">
-            <div class="plano" onclick="comprar('10')">
-                <h2>1 Semana</h2>
-                <p>R$10</p>
-            </div>
-            <div class="plano" onclick="comprar('99')">
-                <h2>1 Mês</h2>
-                <p>R$99</p>
-            </div>
-            <div class="plano" onclick="comprar('150')">
-                <h2>1 Ano</h2>
-                <p>R$150</p>
-            </div>
+
+<div class="overlay">
+    <h1>Libere seu acesso!</h1>
+    <p>Escolha o plano que deseja e clique para enviar a mensagem no WhatsApp.</p>
+
+    <div class="planos">
+        <div class="plano">
+            <h2>Plano Básico</h2>
+            <p>R$50 - Acesso inicial</p>
+            <button onclick="comprar(50)">Comprar</button>
+        </div>
+
+        <div class="plano">
+            <h2>Plano Intermediário</h2>
+            <p>R$100 - Mais recursos</p>
+            <button onclick="comprar(100)">Comprar</button>
+        </div>
+
+        <div class="plano">
+            <h2>Plano Avançado</h2>
+            <p>R$200 - Todos os recursos</p>
+            <button onclick="comprar(200)">Comprar</button>
         </div>
     </div>
+</div>
 
-    <script src="script.js"></script>
+<script>
+function comprar(preco) {
+    const numeroWhatsApp = "5547997135174"; // Troque pelo seu número com DDD
+    const mensagem = `Quero comprar esse de!!: R$${preco}`;
+
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    let link = isMobile 
+        ? `whatsapp://send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`
+        : `https://web.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+
+    window.open(link, "_blank");
+}
+</script>
+
 </body>
 </html>
