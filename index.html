@@ -153,3 +153,29 @@ function comprar(preco) {
 
 </body>
 </html>
+
+<button onclick="pagarPlano(50)">Comprar R$50</button>
+
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+const mp = new MercadoPago('SEU_PUBLIC_KEY', {locale: 'pt-BR'});
+
+function pagarPlano(valor) {
+    fetch('/criar_preferencia', { // rota do seu servidor que cria a preferência
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({preco: valor})
+    })
+    .then(res => res.json())
+    .then(res => {
+        mp.checkout({
+            preference: {id: res.id},
+            render: {container: 'checkout-container', label: 'Pagar'}
+        });
+    });
+}
+</script>
+
+<div id="checkout-container"></div>
+
+
