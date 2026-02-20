@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Libere seu acesso</title>
+<title>Libere seu Acesso</title>
 <style>
     /* Reset básico */
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: Arial, sans-serif;
+        font-family: 'Arial', sans-serif;
     }
 
-    /* Fundo da página */
+    /* Fundo da página com imagem gerada */
     body {
-        background-image: url('C:\Users\souza\Downloads\imagem de vendas web - Pesquisar Imagens.html'); /* Troque pelo caminho da sua imagem */
-        background-size: cover;
-        background-position: center;
+        background-image: url('/mnt/data/A_digital_mockup_of_a_sales_landing_page_displays_.png'); /* Sua imagem */
+        background-size: cover; /* Cobre toda a tela */
+        background-position: center center; /* Centraliza a imagem */
         background-repeat: no-repeat;
         min-height: 100vh;
         display: flex;
@@ -26,40 +26,40 @@
         color: white;
     }
 
-    /* Overlay semi-transparente */
+    /* Overlay semi-transparente para destacar conteúdo */
     .overlay {
-        background-color: rgba(0, 0, 0, 0.6);
-        padding: 40px 60px;
-        border-radius: 20px;
+        background-color: rgba(0,0,0,0.6);
+        padding: 50px 60px;
+        border-radius: 25px;
         text-align: center;
-        max-width: 600px;
+        max-width: 900px;
         width: 90%;
     }
 
     h1 {
-        margin-bottom: 20px;
-        font-size: 32px;
+        font-size: 36px;
+        margin-bottom: 15px;
     }
 
     p {
-        margin-bottom: 30px;
         font-size: 18px;
+        margin-bottom: 40px;
     }
 
-    /* Container de planos */
+    /* Container dos planos */
     .planos {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        gap: 25px;
     }
 
     .plano {
         background-color: rgba(255, 255, 255, 0.1);
-        padding: 20px 30px;
-        border-radius: 15px;
-        flex: 1 1 150px;
-        min-width: 150px;
+        padding: 25px 30px;
+        border-radius: 20px;
+        flex: 1 1 200px;
+        min-width: 180px;
         transition: 0.3s;
     }
 
@@ -69,62 +69,67 @@
     }
 
     .plano h2 {
-        margin-bottom: 10px;
         font-size: 22px;
+        margin-bottom: 15px;
     }
 
     .plano p {
-        margin-bottom: 15px;
         font-size: 16px;
+        margin-bottom: 20px;
     }
 
     .plano button {
-        padding: 10px 20px;
+        padding: 12px 25px;
         font-size: 16px;
         border: none;
-        border-radius: 10px;
-        background-color: #25D366;
-        color: white;
+        border-radius: 12px;
         cursor: pointer;
+        color: white;
+        font-weight: bold;
         transition: 0.3s;
     }
 
-    .plano button:hover {
-        background-color: #128C7E;
-    }
+    /* Cores por plano */
+    .basico button { background-color: #28a745; }
+    .basico button:hover { background-color: #1e7e34; }
+
+    .intermediario button { background-color: #fd7e14; }
+    .intermediario button:hover { background-color: #e8590c; }
+
+    .avancado button { background-color: #dc3545; }
+    .avancado button:hover { background-color: #a71d2a; }
 
     /* Responsividade */
-    @media(max-width: 500px){
-        h1 { font-size: 26px; }
+    @media(max-width: 600px) {
+        h1 { font-size: 28px; }
         p { font-size: 16px; }
-        .plano h2 { font-size: 18px; }
+        .plano h2 { font-size: 20px; }
         .plano p { font-size: 14px; }
     }
-
 </style>
 </head>
 <body>
 
 <div class="overlay">
-    <h1>Libere seu acesso!</h1>
-    <p>Escolha o plano que deseja e clique para enviar a mensagem no WhatsApp.</p>
+    <h1>🚀 Libere seu acesso agora!</h1>
+    <p>Escolha o plano ideal e clique para liberar no WhatsApp!</p>
 
     <div class="planos">
-        <div class="plano">
-            <h2>Plano Básico</h2>
+        <div class="plano basico">
+            <h2>⭐ Plano Básico</h2>
             <p>R$50 - Acesso inicial</p>
             <button onclick="comprar(50)">Comprar</button>
         </div>
 
-        <div class="plano">
-            <h2>Plano Intermediário</h2>
-            <p>R$100 - Mais recursos</p>
+        <div class="plano intermediario">
+            <h2>🔥 Plano Intermediário</h2>
+            <p>R$100 - Recursos extras</p>
             <button onclick="comprar(100)">Comprar</button>
         </div>
 
-        <div class="plano">
-            <h2>Plano Avançado</h2>
-            <p>R$200 - Todos os recursos</p>
+        <div class="plano avancado">
+            <h2>💎 Plano Avançado</h2>
+            <p>R$200 - Acesso completo</p>
             <button onclick="comprar(200)">Comprar</button>
         </div>
     </div>
@@ -133,10 +138,10 @@
 <script>
 function comprar(preco) {
     const numeroWhatsApp = "5547997135174"; // Troque pelo seu número com DDD
-    const mensagem = `Quero comprar esse de!!: R$${preco}`;
+    const mensagem = `Comprei e quero liberar meu acesso! Plano: R$${preco}`;
 
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    let link = isMobile 
+    const link = isMobile 
         ? `whatsapp://send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`
         : `https://web.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
 
